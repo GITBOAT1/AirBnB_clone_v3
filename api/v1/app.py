@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+app setup for Airbnb_Clone_v3
+"""
 
 from flask import Flask, render_template, abort, make_response, jsonify
 from flask_cors import CORS
@@ -6,11 +9,6 @@ from models import storage
 from os import getenv
 from api.v1.views import app_views
 from flasgger import Swagger
-
-
-'''
-app setup for Airbnb_Clone_v3
-'''
 
 app = Flask(__name__)
 cors = CORS(app, resources={r"/api/*": {"origins": "0.0.0.0"}})
