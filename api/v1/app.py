@@ -2,7 +2,6 @@
 """
 app setup for Airbnb_Clone_v3
 """
-
 from flask import Flask, render_template, abort, make_response, jsonify
 from flask_cors import CORS
 from models import storage
@@ -17,9 +16,7 @@ app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 swagger = Swagger(app)
 
-'''
-app setup for Airbnb_Clone_v3
-'''
+
 @app.errorhandler(404)
 def page_not_found(e):
     return jsonify({"error": "Not found"}), 404
