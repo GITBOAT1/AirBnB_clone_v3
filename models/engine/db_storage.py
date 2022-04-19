@@ -41,7 +41,8 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """query on the current database session"""
+        """ query on the current database session
+        """
         new_dict = {}
         for clss in classes:
             if cls is None or cls is classes[clss] or cls is clss:
@@ -52,10 +53,10 @@ class DBStorage:
         return (new_dict)
 
      def get(self, cls, id):
-        '''
+         """
             Retrieves one object if exists
-        '''
-        cls_dict = self.all(cls)
+         """
+         cls_dict = self.all(cls)
         for k, v in cls_dict.items():
             obj = cls + '.' + id
             if k == obj:
@@ -63,9 +64,9 @@ class DBStorage:
         return(None)
 
     def count(self, cls=None):
-        '''
+        """
            counts the num of objects in particular cls
-        '''
+        """
         count = 0
         cls_dict = self.all(cls)
         count = len(cls_dict)
