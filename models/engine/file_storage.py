@@ -49,21 +49,21 @@ class FileStorage:
             json.dump(json_objects, f)
 
             
-        def get(self, cls, id):
-            '''
-            Retrieves one object if exists
-            '''
-            cls_dict = self.all(cls)
+    def get(self, cls, id):
+        """
+        Retrieves one object if exists
+        """
+        cls_dict = self.all(cls)
         for k, v in cls_dict.items():
             obj = cls + '.' + id
             if k == obj:
                 return(v)
         return(None)
-    
-        def count(self, cls=None):
-        '''
-           counts the num of objects in particular cls
-        '''
+        
+    def count(self, cls=None):
+        """
+        counts the num of objects in particular cls
+        """
         count = 0
         cls_dict = self.all(cls)
         count = len(cls_dict)
