@@ -12,6 +12,7 @@ from models import storage
 def getStatus():
     return jsonify({'status': 'OK'})
 
+
 @app_views.route('/stats')
 def getCount():
     count_dict = {"amenities": 'Amenity',

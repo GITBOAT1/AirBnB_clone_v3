@@ -8,6 +8,7 @@ from sqlalchemy.orm import relationship
 from models.base_model import BaseModel, Base
 import hashlib
 
+
 class User(BaseModel, Base):
     '''
         Definition of the User class
@@ -30,12 +31,14 @@ class User(BaseModel, Base):
         last_name = ""
 
     def __init__(self, *args, **kwargs):
+        """ initialize """
         if kwargs:
             encrypt = kwargs.pop('password', None)
             User.set_password(self, encrypt)
         super().__init__(*args, **kwargs)
 
     def set_password(self, _password):
+        """ set password """
         encrypt = hashlib.md5()
         encrypt.update(_password.encode("utf-8"))
         encrypt = encrypt.hexdigest()
